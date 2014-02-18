@@ -10,13 +10,19 @@ import android.widget.ListView;
 import com.tw.awayapp.Adapters.SessionAdapter;
 import com.tw.awayapp.MainActivity;
 import com.tw.awayapp.R;
+import com.tw.awayapp.helpers.AwayDayService;
 import com.tw.awayapp.models.Session;
 
 import java.util.ArrayList;
+import java.util.List;
+
+import retrofit.RestAdapter;
 
 public class SessionListFragment extends Fragment {
 
     ListView sessionListView;
+    private static final String API_URL = "http://pa-kla-away-day.herokuapp.com/";
+
     ArrayList<Session> sessionsA = new ArrayList<Session>();
     Session a = new Session();
     SessionAdapter sessionAdapter;
@@ -43,10 +49,6 @@ public class SessionListFragment extends Fragment {
 
         sessionAdapter = new SessionAdapter(this.getActivity().getBaseContext(),sessionsA);
         sessionListView.setAdapter(sessionAdapter);
-
-
-
-
 
         return rootView;
     }
